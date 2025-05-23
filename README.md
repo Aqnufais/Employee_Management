@@ -1,12 +1,26 @@
-# React + Vite
+# React + Vite - Employee Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is built using **React** with **Vite** for lightning-fast development and Hot Module Replacement (HMR). It follows a minimal setup and is designed to efficiently manage employee tasks and roles through a clean and functional user interface.
 
-Currently, two official plugins are available:
+## 🔧 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🧑‍💼 **Admin Login**: Access an admin dashboard to oversee employee task data.
+- 👨‍💻 **Employee Login**: Employees can log in to view their assigned tasks.
+- 📋 **Task Categories**: Tasks are categorized by type (Design, Development, Testing, etc.).
+- 🟢 **Task Status Tracking**: Tasks are tracked by status (`active`, `new`, `completed`, `failed`).
+- 📊 **Dashboard Views**: Separate dashboards for admins and employees with customized data.
+- 💾 **Local Storage Integration**: Employee and admin data are stored and retrieved from `localStorage`.
 
-## Expanding the ESLint configuration
+## 🛠️ Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend**: React
+- **Build Tool**: Vite
+- **State Management**: React Context API
+- **Styling**: CSS (custom or library)
+- **Persistence**: `localStorage`
+
+## 🚀 Getting Started
+
+```bash
+npm install
+npm run dev
