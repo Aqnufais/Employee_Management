@@ -1,39 +1,36 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../context/AuthProvider'
 
 const AllTask = () => {
+    
+    const authData = useContext(AuthContext)
+    console.log(authData.employees);
+    
   return (
-    <div className='bg-[#4d4b4a] mt-5 rounded overflow-auto h-60 p-5'>
-        <div className='bg-[#e63946] mb-2  rounded flex justify-between py-3 px-5'>
-            <h2>Nufais</h2>
-            <h3>Make a UI Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-[#0077b6] mb-2 rounded flex justify-between py-3 px-5'>
-            <h2>Nufais</h2>
-            <h3>Make a UI Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-[#a4d233] mb-2 rounded flex justify-between py-3 px-5'>
-            <h2>Nufais</h2>
-            <h3>Make a UI Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-[#ffb703] mb-2 rounded flex justify-between py-3 px-5'>
-            <h2>Nufais</h2>
-            <h3>Make a UI Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-[#ffb703] mb-2 rounded flex justify-between py-3 px-5'>
-            <h2>Nufais</h2>
-            <h3>Make a UI Design</h3>
-            <h5>Status</h5>
-        </div>
-        <div className='bg-[#e63946] mb-2 rounded flex justify-between py-3 px-5'>
-            <h2>Nufais</h2>
-            <h3>Make a UI Design</h3>
-            <h5>Status</h5>
-        </div>
+    
+        <div className='bg-[#4d4b4a] rounded mt-5 p-5 '>
+    <div className='bg-blue-400 mb-2 rounded flex justify-between py-3 px-5'>
+        <h2 className='w-1/5 '>Employee</h2>
+        <h2 className='w-1/5 '>New Task</h2>
+        <h2 className='w-1/5 '>Active Task</h2>
+        <h2 className='w-1/5 '>Completed</h2>
+        <h2 className='w-1/5 '>Failed</h2>
     </div>
+
+    {/* Make sure this has a fixed height */}
+    <div className=''>
+        {authData.employees.map((elem, index) => (
+        <div key={index} className='bg-black mb-2 rounded flex justify-between py-3 px-5'>
+            <h2 className='w-1/5'>{elem.firstName}</h2>
+            <h3 className='w-1/5 text-lg font-medium text-[#0077b6]'>{elem.taskCount.newTask}</h3>
+            <h3 className='w-1/5 text-lg font-medium text-[#ffb703]'>{elem.taskCount.active}</h3>
+            <h3 className='w-1/5 text-lg font-medium text-[#a4d233]'>{elem.taskCount.completed}</h3>
+            <h3 className='w-1/5 text-lg font-medium text-[#e63946]'>{elem.taskCount.failed}</h3>
+        </div> 
+        ))}
+    </div>
+    </div>
+
   )
 }
 

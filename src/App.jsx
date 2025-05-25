@@ -12,26 +12,29 @@ const App = () => {
   const authData = useContext(AuthContext)
   // console.log(authData.employees);
   
-  // useEffect(() => {
-  //   if(authData){
-  //     const loggedInUser = localStorage.getItem('loggedInUser')
-  //     if(loggedInUser){
-  //       setUser(loggedInUser.role)
-  //     }
-  //   }
-  // }, [authData])
+  useEffect(() => {
+  const loggedInUser = localStorage.getItem('loggedInUser')
+  if (loggedInUser) {
+    const userData = JSON.parse(loggedInUser)
+    setUser(userData.role)
+
+    if (userData.role === 'employee') {
+      setLoggedInUserData(userData.data)
+    }
+  }
+}, [])
   
   
   const handleLogin = (email, password) => {
-    if(email === 'admin@example.com' && password === '12345') {
+    if(email == 'admin@me.com' && password == '12345') {
       setUser('admin')
       localStorage.setItem('loggedInUser', JSON.stringify({role:'admin'}))
-    }else if(authData){
+  }else if(authData){
       const employee =authData.employees.find((e) => email == e.email && password == e.password)
       if(employee){
         setUser('employee')
         setLoggedInUserData(employee)
-        localStorage.setItem('loggedInUser', JSON.stringify({role:'employee'}))
+        localStorage.setItem('loggedInUser', JSON.stringify({role:'employee', data:employee}))
       }
     }else{
       alert("invalid Email or Password 🛑")
